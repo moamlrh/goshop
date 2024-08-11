@@ -1,0 +1,45 @@
+naries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Libraries
+vendor/
+
+# Log files
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# macOS specific files
+.DS_Store
+
+# Go test artifacts
+*.test
+
+# Coverage data
+coverage.out
+
+# Go modules
+/go.sum
+/go/pkg/mod/
+/go/bin/
+/go/pkg/
+
+# Environment files
+.env
+
+# Build output
+build/
+
+bin/*
+/bin/*
