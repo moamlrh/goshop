@@ -6,10 +6,12 @@ export
 DB_URL="postgres://$(DB_USER):$(DB_PASS)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?sslmode=disable" 
 
 up:build
-	bin/api	
+	@bin/api	
+run:
+	@go run cmd/api/main.go
 
 build:
-	go build -o bin/api cmd/api/main.go
+	@go build -o bin/api cmd/api/main.go
 
 test:
 	go test -v ./...

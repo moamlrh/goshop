@@ -1,15 +1,15 @@
 package database
 
 import (
-	"database/sql"
 	"fmt"
 
+	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"github.com/moamlrh/goshop/internal/config"
 )
 
-func NewPostgresDb() (*sql.DB, error) {
-	cs := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+func NewPostgresDb() (*sqlx.DB, error) {
+	connStr := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		config.AppConfig.Database.Host,
 		config.AppConfig.Database.Port,
 		config.AppConfig.Database.User,
@@ -17,7 +17,7 @@ func NewPostgresDb() (*sql.DB, error) {
 		config.AppConfig.Database.Name,
 	)
 
-	db, err := sql.Open("postgres", cs)
+	db, err := sqlx.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
 	}

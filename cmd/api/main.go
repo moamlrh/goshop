@@ -11,11 +11,16 @@ func main() {
 	if err := config.Load(); err != nil {
 		panic(err)
 	}
+
 	db, err := database.NewPostgresDb()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
-	defer db.Close()
+	defer func() {
+		if err := db.Close(); err != nil {
+			panic(err)
+		}
+	}()
 	log.Println("Successfully connected to the database")
 }

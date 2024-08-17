@@ -5,8 +5,10 @@ go 1.22.5
 require github.com/spf13/viper v1.19.0
 
 require (
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
+	github.com/jmoiron/sqlx v1.4.0 // indirect
 )
 
 require (
